@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Detailed Data Schema Example",
+  "type": "object",
+  "properties": {
+    "User" {
+      "type": "object",
+      "description": "Інформація про користувача",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Ім'я користувача",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "Електронна пошта користувача",
+          "format": "email",
+          "maxLength": 100
+        }
+      },
+      "required": ["name", "email"]
+    },
+    "Chat": {
+      "type": "object",
+      "description": "Інформація про чат",
+      "properties": {
+        "creation_date": {
+          "type": "string",
+          "description": "Дата створення чату",
+          "format": "date"
+        }
+      },
+      "required": ["creation_date"]
+    },
+    "Message": {
+      "type": "object",
+      "description": "Повідомлення у чаті",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Текст повідомлення",
+          "maxLength": 500
+        },
+        "sent_date": {
+          "type": "string",
+          "description": "Дата відправлення повідомлення",
+          "format": "date"
+        }
+      },
+      "required": ["content", "sent_date"]
+    },
+    "SupportService": {
+      "type": "object",
+      "description": "Служба підтримки",
+      "properties": {
+        "response_time": {
+          "type": "number",
+          "description": "Час відповіді служби підтримки у годинах",
+          "minimum": 0
+        }
+      },
+      "required": ["response_time"]
+    },
+    "SupportRequest": {
+      "type": "object",
+      "description": "Запит до служби підтримки",
+      "properties": {
+        "request_date": {
+          "type": "string",
+          "description": "Дата створення запиту",
+          "format": "date"
+        },
+        "response_date": {
+          "type": "string",
+          "description": "Дата відповіді на запит",
+          "format": "date"
+        }, }}
+        "status": {
+          "type": "string",
+          "description": "Статус запиту",
+          "pattern": "^(Відкритий|Закритий|Інше)$"
+        
+      },
+      "required": ["request_date", "status"]
+    },
+    "System": {
+      "description": "Інформація про систему",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Назва системи",
+          "maxLength": 100,
+          "pattern": "^[A-Za-z0-9 ]+$"
+        },
+        "version": {
+          "type": "string",
+          "description": "Версія системи",
+          "pattern": "^\\d+\\.\\d+$"
+        }
+      },
+      ["name", "version"]
